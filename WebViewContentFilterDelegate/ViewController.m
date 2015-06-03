@@ -2,8 +2,9 @@
 //  ViewController.m
 //  WebViewContentFilterDelegate
 //
-//  Created by Oliver and Vienne Ng on 10/4/15.
-//  Copyright (c) 2015 ONG. All rights reserved.
+//  Created by Oliver Ng on 30/5/15.
+//  Copyright (c) 2015 Security Compass. All rights reserved.
+//  http://www.securitycompass.com
 //
 
 #import "ViewController.h"
@@ -34,12 +35,12 @@
   // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UIWebViewDelegate stuff
-
+// the function below checks if the URL contains our trusted domains such as
+// securitycompass.com.  If it does, then we allow display in WebView. Otherwise we pass to safari
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
   
   // this function will fire anytime a URL is requested in WebView
-  // we first check if the URL matches any of our hardcoded domains (IRL use array as a whitelist)
+  // we first check if the URL matches any of our hardcoded domains (IRL use a whitelist)
   NSString *trustedHost = @"securitycompass.com";
   NSString *trustedHost2 = @"www.securitycompass.com";
   
